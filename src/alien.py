@@ -28,6 +28,7 @@ class Alien(Sprite):
         self.screen.blit(self.image, self.rect)  # ('o que', 'onde')
 
     def update(self):
+        """Move o alienígena para a direita ou esquerda."""
         self.x += (
             self.settings.alien_speed * self.settings.fleet_direction
         )  # Move o alienígena para a direita ou esquerda com base na direção da frota
