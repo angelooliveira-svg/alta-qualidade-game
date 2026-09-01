@@ -6,15 +6,27 @@ from alien import Alien
 class FleetManager:
     """Responsável apenas por criar e gerenciar a frota de alienígenas."""
     # PASSOS: Adicione 'ship' nos parâmetros do __init__
-    def __init__(self, screen, settings, ship) -> None:
+    def __init__(self, screen, settings, ship, alien_class=Alien) -> None:
         self.screen = screen
         self.settings = settings
         self.ship = ship
         self.aliens = pygame.sprite.Group()
+        self.alien_class = alien_class
+
+    def _create_alien(self, alien_number: int, row_number: int, alien_width: int, alien_height: int) -> None:
+        """Cria um alienígena e o posiciona na linha."""
+        alien = self.alien_class(self.screen, self.settings)
+        alien_width = alien.rect.width
+        alien.x = alien_width + 2 * alien_width * alien_number
+        alien.rect.x = alien.x
+        alien_height = alien.rect.height
+        alien.y = alien_height + 2 * alien_height * row_number
+        alien.rect.y = alien.y
+        self.aliens.add(alien)
 
     def create_fleet(self):
         """Cria uma frota de alienígenas."""
-        alien = Alien(self.screen, self.settings)
+        alien = self.alien_class(self.screen, self.settings)
         alien_width = alien.rect.width
         alien_height = alien.rect.height
         
@@ -29,12 +41,10 @@ class FleetManager:
 
         # CORREÇÃO: Alinhado para dentro do método create_fleet
         for row_number in range(number_rows):
+            #Cria a primeira linha de alienígenas
             for alien_number in range(number_aliens_x):
-                alien = Alien(self.screen, self.settings)
-                alien.x = alien_width + 2 * alien_width * alien_number
-                alien.rect.x = alien.x
-                alien.y = alien_height + 2 * alien_height * row_number
-                alien.rect.y = alien.y
+                #Cria um alienígena e o posiciona na linha
+                self._create_alien(alien_number, row_number, alien_width, alien_height)
                 self.aliens.add(alien)
 
     def _update_aliens(self) -> None:
