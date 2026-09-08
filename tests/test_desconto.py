@@ -25,5 +25,6 @@ def test_desconto_vip_200(desconto_vip):
 def test_desconto_premium(valor, esperado):
     desconto = DescontoPremium()
     resultado = desconto.calcular(valor)
-    
+
     assert resultado == esperado
+
