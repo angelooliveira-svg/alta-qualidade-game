@@ -17,7 +17,7 @@ def test_desconto_vip_200(desconto_vip):
     assert desconto_vip.calcular(200) == 40
 
 @pytest.mark.parametrize("valor, esperado", [
-    (100, 10),
+    (100, 30),
     (200, 60),
     (300, 90),
 ])
@@ -27,4 +27,3 @@ def test_desconto_premium(valor, esperado):
     resultado = desconto.calcular(valor)
 
     assert resultado == esperado
-
