@@ -1,10 +1,3 @@
-from abc import ABC, abstractmethod
-
-class Desconto(ABC):
-    @abstractmethod 
-    def calcular(self, valor):
-        pass
-
 class IDesconto:
     def calcular(self, valor):
         raise NotImplementedError
@@ -17,11 +10,11 @@ class IVip:
     def validar_usuario_vip(self, usuario):
         raise NotImplementedError
 
-class DescontoNormal(Desconto):
+class DescontoNormal(IDesconto):
     def calcular (self, valor):
         return valor * 0.1
 
-class DescontoVip(Desconto, ICupom, IVip):
+class DescontoVip(IDesconto, ICupom, IVip):
     def calcular (self, valor):
         return valor * 0.2
 
@@ -31,11 +24,11 @@ class DescontoVip(Desconto, ICupom, IVip):
     def validar_usuario_vip(self, usuario):
         return usuario == "vip"
 
-class DescontoPremium(Desconto):
+class DescontoPremium(IDesconto):
     def calcular (self, valor):
         return valor * 0.3
 
-def aplicar_desconto(desconto: Desconto, valor: float) -> float:
+def aplicar_desconto(desconto: IDesconto, valor: float) -> float:
     return desconto.calcular(valor)
 
 def aplicar_cupom(cupom: ICupom, codigo: str) -> bool:
