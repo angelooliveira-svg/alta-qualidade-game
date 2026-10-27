@@ -1,4 +1,5 @@
 import pygame
+
 from src.ship import Ship
 from tests.doubles import StubSettings
 

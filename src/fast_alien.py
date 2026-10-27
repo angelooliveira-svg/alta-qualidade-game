@@ -1,5 +1,6 @@
 from alien import Alien
 
+
 class FastAlien(Alien):
     """Alienígena mais rápido"""
 

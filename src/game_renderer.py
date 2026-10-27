@@ -1,11 +1,5 @@
-import sys
 import pygame
 
-from alien import Alien
-from bullet import Bullet
-from settings import Settings
-from ship import Ship
-import ship
 
 class GameRenderer:
     """Responsável apenas por desenhar os elementos na tela."""

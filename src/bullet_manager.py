@@ -1,11 +1,7 @@
-import sys
 import pygame
 
-from alien import Alien
 from bullet import Bullet
-from settings import Settings
-from ship import Ship
-import ship
+
 
 class BulletManager:
     """Responsável por apenas por criar, atualizar e desenhar os projéteis."""

@@ -1,5 +1,6 @@
-from tests.doubles import StubSemDesconto
 from src.desconto import Pedido
+from tests.doubles import StubSemDesconto
+
 
 def test_pedido_com_stub():
     pedido = Pedido(StubSemDesconto())

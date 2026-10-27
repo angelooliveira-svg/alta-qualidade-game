@@ -1,5 +1,7 @@
 import pytest
-from src.desconto import DescontoNormal, DescontoVip, DescontoPremium
+
+from src.desconto import DescontoNormal, DescontoPremium, DescontoVip
+
 
 def test_desconto_normal():
     desconto = DescontoNormal()

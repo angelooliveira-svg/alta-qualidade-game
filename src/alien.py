@@ -1,6 +1,7 @@
 import pygame
 from pygame.sprite import Sprite
 from pygame.surface import Surface
+
 from settings import Settings
 
 
@@ -41,6 +42,4 @@ class Alien(Sprite):
     def check_edges(self) -> bool:
         """Retorna True se o alienígena estiver na borda da tela."""
         screen_rect = self.screen.get_rect()
-        if self.rect.right >= screen_rect.right or self.rect.left <= 0:
-            return True
-        return False
+        return self.rect.right >= screen_rect.right or self.rect.left <= 0

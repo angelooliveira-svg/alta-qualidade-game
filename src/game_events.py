@@ -1,5 +1,7 @@
 import sys
+
 import pygame
+
 
 class GameEventHandler:
     """"Responsável apenas por ler e tratar os eventos no teclado/janela"""
